@@ -10,7 +10,7 @@ const Login = () => {
 
   useEffect(() => {
     deleteCookie("token")
-    window.localStorage.clear()
+    // window.localStorage.clear()
   }, [])
 
   const [login, { loading }] = useMutation(LOGIN, {
@@ -20,8 +20,8 @@ const Login = () => {
     },
     onCompleted: (data) => {
       console.log(data)
-      setCookie('token', data.login.token);
-      window.location.href = "/listing"
+      setCookie('token', data.loginAdmin.token);
+      window.location.href = "/listings"
     },
     onError: (error) => {
       console.log(error)
@@ -33,7 +33,7 @@ const Login = () => {
       <div className='lg:flex'>
         <div className='sm:hidden h-screen w-1/2 p-10 bg-primaryColor text-white'>
           <h1 className=' text-4xl my-4'>Hello, Admin </h1>
-          <img src="/images/auth.png" className='my-10' alt="" />
+          <img src="/images/auth.png" className='my-16' alt="" />
         </div>
 
         <div className='lg:mx-20 lg:w-1/2 my-auto'>
