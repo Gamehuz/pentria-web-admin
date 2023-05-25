@@ -89,3 +89,23 @@ export const GET_ALL_USERS = gql`
     }
   }
 `
+export const GET_ALL_TICKETS = gql`
+query Transactions {
+  transactions {
+    userId
+    name
+    email
+    phone
+    amount
+    type
+    currency
+    status
+    tx_ref
+    txId
+    profit
+    paymentMethod
+    createdAt
+    updatedAt
+  }
+}
+`

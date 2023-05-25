@@ -47,14 +47,14 @@ const SideNav = ({ toggle }: { toggle: boolean }) => {
                   <p className='my-auto font-bold ml-6'>Tickets</p>
                 </div>
               </Link>
-              <Link href={"/payments"}>
+              {/* <Link href={"/payments"}>
                 <div className={router.pathname.includes("payments") ? "bg-primaryColor flex w-full p-4 pl-10 text-white" : ' flex w-full p-4 pl-10'}>
                   <div className={router.pathname.includes("payments") ? 'w-8 h-8 bg-white p-1 rounded-full' : 'w-8 h-8 rounded-full'}>
                     <img src="/images/wallet.png" className='w-6 h-6' alt="" />
                   </div>
                   <p className='my-auto font-bold ml-6'>Payments</p>
                 </div>
-              </Link>
+              </Link> */}
               <Link href={"/reports"}>
                 <div className={router.pathname.includes("reports") ? "bg-primaryColor flex w-full p-4 pl-10 text-white" : ' flex w-full p-4 pl-10'}>
                   <div className={router.pathname.includes("reports") ? 'w-8 h-8 bg-white p-1 rounded-full' : 'w-8 h-8 rounded-full'}>
