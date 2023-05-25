@@ -109,3 +109,39 @@ query Transactions {
   }
 }
 `
+export const UPDATE_ADMIN = gql`
+  mutation EditAdminInfo($firstName: String!, $lastName: String!, $editAdminInfoEmail2: String!, $phone: String!, $address: String!, $city: String!, $state: String!) {
+    editAdminInfo(firstName: $firstName, lastName: $lastName, email: $editAdminInfoEmail2, phone: $phone, address: $address, city: $city, state: $state) {
+      _id
+      firstName
+      lastName
+      email
+      phone
+      address
+      city
+      state
+      otp
+      dob
+      sex
+      isVerified
+      ninverified
+      isActive
+      lastLoggedIn
+      accountType
+      createdAt
+      updatedAt
+      bName
+      bankName
+      bank
+      acctNumber
+      bankCode
+      occupation
+    }
+  }
+`
+
+export const UPDATE_PASSWORD = gql`
+  mutation UpdateAdminPassword($oldPassword: String!, $newPassword: String!) {
+    updateAdminPassword(oldPassword: $oldPassword, newPassword: $newPassword)
+  }
+`

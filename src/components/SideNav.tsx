@@ -64,7 +64,7 @@ const SideNav = ({ toggle }: { toggle: boolean }) => {
                 </div>
               </Link>
 
-              <Link href={"/vendor/settings"}>
+              <Link href={"/settings"}>
                 <div className={router.pathname.includes("settings") ? "bg-primaryColor flex w-full p-4 pl-10 text-white" : ' flex w-full p-4 pl-10'}>
                   <div className={router.pathname.includes("settings") ? 'w-8 h-8 bg-white p-1 rounded-full' : 'w-8 h-8 rounded-full'}>
                     <img src="/images/setting-4.png" className='w-6 h-6' alt="" />
