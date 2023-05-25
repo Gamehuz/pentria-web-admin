@@ -3,6 +3,8 @@ import { useMutation } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { setCookie } from 'cookies-next';
 import { deleteCookie } from 'cookies-next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -22,9 +24,11 @@ const Login = () => {
       console.log(data)
       setCookie('token', data.loginAdmin.token);
       window.location.href = "/listings"
+      toast.success("Login Successful")
     },
     onError: (error) => {
       console.log(error)
+      toast.error(error.message)
     }
   })
 
@@ -99,6 +103,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </main>
   );
 };

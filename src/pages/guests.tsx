@@ -3,11 +3,11 @@ import FrontLayout from '@/layout/FrontLayout';
 import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 
-const Vendors = () => {
+const Guests = () => {
   const [vendors, setVendors] = useState<any>([]);
   useQuery(GET_ALL_USERS, {
     variables: {
-      filter: "VENDOR"
+      filter: "GUEST"
     },
     onCompleted: (data) => {
       console.log(data);
@@ -34,21 +34,21 @@ const Vendors = () => {
             <thead className='bg-gray-300'>
               <tr>
                 <td className='p-2'>S/N</td>
-                <td >Vendor</td>
+                <td >Guest</td>
                 <td>Location</td>
-                <td>Bank</td>
-                <td>Account Number</td>
+                <td>Email</td>
+                <td>Status</td>
                 <td></td>
               </tr>
             </thead>
             <tbody>
-              {vendors.map((vendor: { firstName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; lastName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; address: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; bank: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; acctNumber: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }, index: number) =>
+              {vendors.map((vendor: { firstName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; lastName: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; address: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; email: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; isActive: any; }, index: number) =>
                 <tr key={index}>
                   <td className='p-2'>{index + 1}</td>
                   <td >{vendor.firstName} {vendor.lastName}</td>
                   <td>{vendor.address}</td>
-                  <td>{vendor.bank}</td>
-                  <td>{vendor.acctNumber}</td>
+                  <td>{vendor.email}</td>
+                  <td>{vendor.isActive ? <span className='text-green-500'>Active</span> : <span className='text-red-500'>Not Active</span>}</td>
                   <td>
                     <img src="/images/trash.png" className='w-6 h-6' alt="" />
                   </td>
@@ -62,4 +62,4 @@ const Vendors = () => {
   );
 };
 
-export default Vendors;
+export default Guests;

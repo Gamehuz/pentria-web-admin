@@ -59,3 +59,33 @@ query spaces {
   }
 }
 `
+export const GET_ALL_USERS = gql`
+  query Users($filter: String) {
+    users(filter: $filter) {
+      _id
+      firstName
+      lastName
+      email
+      phone
+      address
+      city
+      state
+      otp
+      dob
+      sex
+      isVerified
+      ninverified
+      isActive
+      lastLoggedIn
+      accountType
+      createdAt
+      updatedAt
+      bName
+      bankName
+      bank
+      acctNumber
+      bankCode
+      occupation
+    }
+  }
+`
