@@ -5,9 +5,10 @@ import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client
 import { getCookie } from 'cookies-next';
 
 const token = getCookie('token')
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
 
 const client = new ApolloClient({
-  uri: 'https://pentria-apiv1-4w2bw.ondigitalocean.app/graphql',
+  uri: SERVER_URL,
   cache: new InMemoryCache(),
   headers: {
     ...(token !== undefined ? { Authorization: `Bearer ${token}` } : {})

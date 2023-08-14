@@ -15,7 +15,7 @@ const SideNav = ({ toggle }: { toggle: boolean }) => {
         toggle && <div className='sm:absolute sm:z-10 bg-white'>
           <div className='lg:fixed lg:w-[20%]  h-screen shadow'>
             <div>
-              <Link href={"/listing"}>
+              <Link href={"/listings"}>
                 <div className={router.pathname.includes("listing") ? "bg-primaryColor flex w-full mt-28 p-4 pl-10 text-white" : 'flex w-full p-4 pl-10 mt-28'}>
                   <div className={router.pathname.includes("listing") ? 'w-8 h-8 bg-white p-1 rounded-full' : 'w-8 h-8 rounded-full'}>
                     <img src="/images/folder-open.png" className='w-6 h-6' alt="" />
