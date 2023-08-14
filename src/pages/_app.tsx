@@ -16,6 +16,7 @@ const client = new ApolloClient({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Pentria Admin</title>
       </Head>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <AnyComponent {...pageProps} />
       </ApolloProvider>
     </>
   )
