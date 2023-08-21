@@ -4,9 +4,11 @@ import { useLazyQuery, useMutation } from '@apollo/client';
 import { message } from 'antd';
 import Router from 'next/router'
 import React, { useState, useRef } from 'react';
+import ListingModal from '@/components/ListingModal'
 
 const ListingCard = ({ list }: { list: any }) => {
   const [messageApi, contextHolder] = message.useMessage();
+  const [modal, setModal] = useState(false)
 
 
   const [editSpace, {error }] = useMutation(UPDATE_SPACE, {
@@ -95,12 +97,12 @@ const ListingCard = ({ list }: { list: any }) => {
       </div> */}
       <div className='lg:w-20 flex justify-between text-sm'>
         <button className='border border-primaryColor lg:mx-2 text-primaryColor px-4 p-3 h-12 rounded-md my-auto' onClick={() => Router.push(`/listings/${list._id}`)} >View</button>
-        <button className='border border-primaryColor lg:mx-2 text-primaryColor px-4 p-3 h-12 rounded-md my-auto'>Edit</button>
+        <button className='border border-primaryColor lg:mx-2 text-primaryColor px-4 p-3 h-12 rounded-md my-auto' onClick={() => setModal(true)}>Edit</button>
         <button onClick={() => approveElseListing(list._id, list.approved)} className='border border-primaryColor lg:mx-2 text-primaryColor px-4 p-3 h-12 rounded-md my-auto'>{list.approved ? 'Unapprove': 'Approve'}</button>
         <button onClick={() => deleteSpace()} className='bg-red-500 lg:mx-2 text-white p-3 px-4 h-12 rounded-md my-auto'> {loading ? "Deleting..." : "Delete"}</button>
       </div>
 
-
+      <ListingModal modal={modal} setModal={() => setModal(!modal)} space={list} />
     </div>
   );
 };

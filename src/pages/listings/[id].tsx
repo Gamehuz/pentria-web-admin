@@ -40,8 +40,7 @@ function Listing() {
           <div className='text-center p-32'>
             <Spin size="large" />
           </div>
-        ) : <main className='lg:px-20 px-4 py-10'>
-          <div onClick={() => router.back()} className='font-bold flex cursor-pointer'> <img src="/images/back.svg" className='mr-4' alt="" /> Back to results</div>
+        ) : <main className='lg:px-20 px-4 py-10 mt-20'>
           <h3 className='font-bold text-2xl my-4'>{space.name}</h3>
           <div className='lg:flex justify-between'>
             <div className='flex w-full'> <img src="/images/map-pin.png" className='mr-4 w-8 h-8 my-auto' alt="" /> <p className='my-auto text-lg'>{space.location}</p></div>
